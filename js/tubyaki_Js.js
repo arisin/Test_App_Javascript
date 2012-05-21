@@ -63,4 +63,10 @@ twttr.anywhere(function(t){
       console.log("isConnected !== false");
       t('#fb-root').connectButton();
     }
+	//TweetBox
+	t('#t_box').tweetBox({
+		height: 100,
+      	width: 400,
+      	defaultContent: "<YOUR DEFAULT TWEETBOX CONTENT HERE>"
+	});
   });
