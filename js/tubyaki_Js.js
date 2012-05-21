@@ -30,8 +30,17 @@ var twitter_id = 'arisinn'; //表示したいtwitter ID
 var twitter_count = 10; //表示数
 var twitter_elem_id = 'twitter_data';
 
-t_aupdate = setInterval(function(){
-	window.onload = function() {
+window.onload = function(){
+	get_timeline();
+	
+	var t_aupdate = setInterval(function(){
+		get_timeline();
+		console.log("++++++++");
+	},5000);
+
+};
+
+var get_timeline = function() {
 	var url = 'http://twitter.com/statuses/user_timeline/'
 				+ twitter_id
 				+ '.json?callback=twitterCallback&count='
@@ -39,15 +48,14 @@ t_aupdate = setInterval(function(){
 	var script = document.createElement('script');
 	script.setAttribute('src', url);
 	document.body.appendChild(script);
-	}
+};
 
-	function twitterCallback(obj){
-		var html = "";
-		for(var i=0 ; i<twitter_count && i<obj.length ; i++){
-			html += "<li><a href='http://twitter.com/" + twitter_id + "/status/"
-			+ obj[i].id + "'>" + obj[i].text + "</a></li>";
-		}
-	document.getElementById('t_line').innerHTML = html;
+function twitterCallback(obj){
+	var html = "";
+	for(var i=0 ; i<twitter_count && i<obj.length ; i++){
+		html += "<li><a href='http://twitter.com/" + twitter_id + "/status/"
+		+ obj[i].id + "'>" + obj[i].text + "</a></li>";
 	}
-console.log("++++++++");
-},1000);
+	document.getElementById('t_line').innerHTML = html;
+}
+
