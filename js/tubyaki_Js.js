@@ -56,7 +56,7 @@ twttr.anywhere(function(t){
       var desc      = u.data('description');
       var image     = u.data('profile_image_url');
       var image_tag = '<img src="' + image + '">';
-      var e = document.getElementById('login');
+      var e = document.getElementById('user');
       e.innerHTML = 'Logged in as ' + image_tag + ' ' + name;
       e.innerHTML += '<br>' + desc;
     }else{

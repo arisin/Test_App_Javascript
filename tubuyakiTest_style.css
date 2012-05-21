@@ -7,12 +7,6 @@
   	border: 0;
 }
 
-header{
-	width:auto;
-	height:30px;
-	background-color:#000;
-}
-
 #fb-root{
 	width:400px;
 	height:auto;
@@ -25,10 +19,4 @@ header{
 	height:auto;
 	float:left;
 	background-color:#F9F;
-}
-
-footer{
-	width:auto;
-	height:30px;
-	background-color:#000;
 }
