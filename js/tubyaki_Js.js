@@ -70,4 +70,4 @@ twttr.anywhere(function(t){
 		label:"今なにしてる？",
       	defaultContent: "ツイートする"
 	});
-  });
+ });

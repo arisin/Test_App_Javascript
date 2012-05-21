@@ -13,15 +13,8 @@ header{
 	background-color:#000;
 }
 
-#tw{
-	width:400px;
-	height:auto;
-	float:left;
-	background-color:#FFC;
-}
-
 #fb-root{
-	width:300px;
+	width:400px;
 	height:auto;
 	float:left;
 	background-color:#FCC;
