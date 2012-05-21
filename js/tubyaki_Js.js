@@ -67,6 +67,7 @@ twttr.anywhere(function(t){
 	t('#t_box').tweetBox({
 		height: 100,
       	width: 400,
-      	defaultContent: "<YOUR DEFAULT TWEETBOX CONTENT HERE>"
+		label:"今なにしてる？",
+      	defaultContent: "ツイートする"
 	});
   });
