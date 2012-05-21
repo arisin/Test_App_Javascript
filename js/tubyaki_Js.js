@@ -1,52 +1,6 @@
 // JavaScript Document
 
-//facebook
-//get_page_information();
-
-/*
-window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '264932516939250', // App ID
-//      channelUrl : 'http://www.facebook.com/home.php', // Channel File
-      status     : true, // check login status
-      cookie     : true, // enable cookies to allow the server to access the session
-      xfbml      : true  // parse XFBML
-    });
-
-    // Additional initialization code here
-};
-
-/*
-function get_page_information(){
-	FB.api('/FacebookJapan/posts', { limit: 3 }, function(response) {
-			for (var i=0, l=response.data.length; i<l; i++) {
-			var post = response.data[i];
-			
-			if (post.message) {
-				document.getElementById('fb-root').innerHTML += post.message+"<br />";
-				console.log(post.message);
-			} else if (post.attachment && post.attachment.name) {
-				document.getElementById('fb-root').innerHTML +=　"Attachment:" + post.attachment.name+"<br />";
-			}
-		}
-	});
-}//*/
-
-/*
-FB.getLoginStatus(function(response) {
-	if (response.session) {
-		document.getElementById('login').innerHTML='<a href="#" onclick="FB.logout();">Logout</a><br/>';
-		get_user_information();
-	} else {
-		document.getElementById('login').innerHTML
-			='<fb:login-button show-faces="true" width="200"'
-			+ ' max-rows="1" perms="user_likes, friends_likes">'
-			+ '</fb:login-button>';
-			FB.XFBML.parse();
-	}
-});
-//*/
-
+//twitter
 twttr.anywhere(function(t){
     if(t.isConnected()){
       console.info("isConnected === true");
@@ -61,7 +15,7 @@ twttr.anywhere(function(t){
       e.innerHTML += '<br>' + desc;
     }else{
       console.log("isConnected !== false");
-      t('#fb-root').connectButton();
+      t('#t_line').connectButton();
     }
 	//TweetBox
 	t('#t_box').tweetBox({
@@ -71,12 +25,13 @@ twttr.anywhere(function(t){
       	defaultContent: "ツイートする"
 	});
  });
- 
+//タイムライン表示
 var twitter_id = 'arisinn'; //表示したいtwitter ID
 var twitter_count = 10; //表示数
 var twitter_elem_id = 'twitter_data';
 
-window.onload = function() {
+t_aupdate = setInterval(function(){
+	window.onload = function() {
 	var url = 'http://twitter.com/statuses/user_timeline/'
 				+ twitter_id
 				+ '.json?callback=twitterCallback&count='
@@ -84,13 +39,15 @@ window.onload = function() {
 	var script = document.createElement('script');
 	script.setAttribute('src', url);
 	document.body.appendChild(script);
-}
-
-function twitterCallback(obj){
-	var html = "";
-	for(var i=0 ; i<twitter_count && i<obj.length ; i++){
-		html += "<li><a href='http://twitter.com/" + twitter_id + "/status/"
-		+ obj[i].id + "'>" + obj[i].text + "</a></li>";
 	}
+
+	function twitterCallback(obj){
+		var html = "";
+		for(var i=0 ; i<twitter_count && i<obj.length ; i++){
+			html += "<li><a href='http://twitter.com/" + twitter_id + "/status/"
+			+ obj[i].id + "'>" + obj[i].text + "</a></li>";
+		}
 	document.getElementById('t_line').innerHTML = html;
-}
+	}
+console.log("++++++++");
+},1000);
