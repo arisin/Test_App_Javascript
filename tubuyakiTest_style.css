@@ -1,0 +1,41 @@
+@charset "UTF-8";
+/* CSS Document */
+
+#{
+	margin: 0;
+ 	padding: 0;
+  	border: 0;
+}
+
+header{
+	width:auto;
+	height:30px;
+	background-color:#000;
+}
+
+#tw{
+	width:300px;
+	height:auto;
+	float:left;
+	background-color:#FFC;
+}
+
+#fb-root{
+	width:300px;
+	height:auto;
+	float:left;
+	background-color:#FCC;
+}
+
+#go{
+	width:300px;
+	height:auto;
+	float:left;
+	background-color:#F9F;
+}
+
+footer{
+	width:auto;
+	height:30px;
+	background-color:#000;
+}
