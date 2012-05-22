@@ -33,11 +33,11 @@ var twitter_elem_id = 'twitter_data';
 window.onload = function(){
 	get_timeline();
 	
-	var t_aupdate = setInterval(function(){
+/*	var t_update = setInterval(function(){
 		get_timeline();
 		console.log("++++++++");
 	},5000);
-
+*/
 };
 
 var get_timeline = function() {
@@ -59,3 +59,8 @@ function twitterCallback(obj){
 	document.getElementById('t_line').innerHTML = html;
 }
 
+//タイムラインのアップデート
+var t_update = function(){
+	get_timeline();
+	console.log('update');
+}
