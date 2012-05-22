@@ -60,7 +60,7 @@ function twitterCallback(obj){
 }
 
 //タイムラインのアップデート
-var t_update = function(){
+var twitter_update = function(){
 	get_timeline();
 	console.log('update');
 }
