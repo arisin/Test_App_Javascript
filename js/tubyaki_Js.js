@@ -54,7 +54,8 @@ function twitterCallback(obj){
 	var html = "";
 	for(var i=0 ; i<twitter_count && i<obj.length ; i++){
 		html += "<li><a href='http://twitter.com/" + twitter_id + "/status/"
-		+ obj[i].id + "'>" + obj[i].text + "</a></li>";
+		+ obj[i].id + "'>" + obj[i].text + "</a></li>" +
+		"<p>--------------------------------------------------------------<p/>";
 	}
 	document.getElementById('t_line').innerHTML = html;
 }
