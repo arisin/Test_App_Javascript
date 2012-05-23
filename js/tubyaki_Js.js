@@ -41,7 +41,8 @@ window.onload = function(){
 };
 
 var get_timeline = function() {
-	var url = 'http://twitter.com/statuses/user_timeline/'
+	//var url = 'http://twitter.com/statuses/user_timeline/'
+	var url = 'http://twitter.com/statuses/home_timeline/'
 				+ twitter_id
 				+ '.json?callback=twitterCallback&count='
 				+ twitter_count;
