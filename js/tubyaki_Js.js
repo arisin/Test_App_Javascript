@@ -31,8 +31,7 @@ var twitter_count = 10; //表示数
 var twitter_elem_id = 'twitter_data';
 
 window.onload = function(){
-	get_timeline();
-	
+	get_timeline();	
 /*	var t_update = setInterval(function(){
 		get_timeline();
 		console.log("++++++++");
@@ -41,11 +40,11 @@ window.onload = function(){
 };
 
 var get_timeline = function() {
-	//var url = 'http://twitter.com/statuses/user_timeline/'
-	var url = 'http://twitter.com/statuses/home_timeline/'
+	var url = 'http://twitter.com/statuses/user_timeline/'
 				+ twitter_id
 				+ '.json?callback=twitterCallback&count='
-				+ twitter_count;
+				+ twitter_count; 
+
 	var script = document.createElement('script');
 	script.setAttribute('src', url);
 	document.body.appendChild(script);
