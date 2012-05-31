@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Three.js チュートリアル１</title>
+<script src="mrdoob-three.js-81ffca2/build/Three.js"></script>
+
+</head>
+
+<script>
+	var mesh = [];
+	window.addEventListener('load',function(){
+		var camera, scene, renderer,
+    		geometry, material;
+
+	    init();
+    	animate();
+	});
+
+    function init() {
+
+        scene = new THREE.Scene();
+
+        camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 10000 );
+        camera.position.z = 1000;
+        scene.add( camera );
+
+        geometry = [
+			new THREE.CubeGeometry( 200, 200, 200 ),
+			new THREE.TorusGeometry( 100, 50, 100, 30 )
+			];
+        material = new THREE.MeshBasicMaterial( { color: 0x0000CD, wireframe: true } );
+		
+		var pX = 300, i = 0;
+		for(var gkey in geometry){
+            mesh.push(new THREE.Mesh( geometry[gkey], material ));
+			mesh[i].position.x = pX;			
+	        scene.add( mesh[gkey] );
+			pX += 400;
+			i += 1;
+		}
+		
+        renderer = new THREE.CanvasRenderer();
+        renderer.setSize( window.innerWidth, window.innerHeight );
+
+        document.body.appendChild( renderer.domElement );
+    }
+
+    function animate() {
+
+        // note: three.js includes requestAnimationFrame shim
+        requestAnimationFrame( animate );
+        render();
+
+    }
+
+    var t=0.0;
+    function render() {
+
+        mesh[0].rotation.x += 0.01;
+//		t+=0.1;
+//		mesh[0].position.x = Math.sin(t) * 100;
+//	    mesh[0].position.y = Math.cos(t) * 100;
+        mesh[1].rotation.y += 0.02;
+
+        renderer.render( scene, camera );
+
+    }
+</script>
+<body>
+</body>
+</html>

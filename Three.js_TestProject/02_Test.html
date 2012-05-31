@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Three.js Test_02</title>
+<script src="mrdoob-three.js-81ffca2/build/Three.js"></script>
+
+</head>
+
+<script>
+	var mesh;
+	
+	window.addEventListener('load',function(){
+		var camera, scene, renderer,
+    		geometry, material;
+
+	    init();
+    	animate();
+	});
+
+    function init() {
+
+        scene = new THREE.Scene();
+
+        camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 10000 );
+        camera.position.z = 1000;
+        scene.add( camera );
+
+
+		// load ascii model
+
+        var jsonLoader = new THREE.JSONLoader();
+        jsonLoader.load( "Test2.js", function( geometry ) { createScene( geometry ) } );
+
+        function createScene( geometry ) {
+
+            mesh = new THREE.Mesh( geometry, new THREE.MeshFaceMaterial() );
+			scene.add(mesh);		
+
+        }
+		
+        
+		renderer = new THREE.CanvasRenderer();
+        renderer.setSize( window.innerWidth, window.innerHeight );
+
+        document.body.appendChild( renderer.domElement );
+    }
+
+    function animate() {
+
+        // note: three.js includes requestAnimationFrame shim
+        requestAnimationFrame( animate );
+        render();
+
+    }
+
+    function render() {
+        mesh.rotation.x += 0.01;
+        mesh.rotation.y += 0.02;
+        renderer.render( scene, camera );
+    }
+</script>
+<body>
+</body>
+</html>
