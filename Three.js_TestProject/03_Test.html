@@ -60,7 +60,11 @@
 //        mesh.rotation.y += 0.02;
         renderer.render( scene, camera );
     }
-</script>
+	
+	//デバック用
+	document.addEventListener("keypress",function(e){
+		if(e.keyCode == 39)alert("右押した");
+    }, false);
 <body>
 </body>
 </html>
