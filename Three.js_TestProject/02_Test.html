@@ -25,8 +25,8 @@
         scene = new THREE.Scene();
 
         camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 10000 );
-        camera.position.z = 10;
-		camera.lookAt({x:0, y:0, z:0 });
+//        camera.position.z = 10;
+//		camera.lookAt({x:0, y:0, z:0 });
         scene.add( camera );
 
 
@@ -63,7 +63,9 @@
 //        mesh.rotation.y += 0.02;
 		camera.position.z = d * Math.sin(t0);
 		camera.position.x = d * Math.cos(t0);		
+		camera.lookAt({x:0, y:0, z:0 });
         renderer.render( scene, camera );
+		
     }
 	
 	//デバック用
