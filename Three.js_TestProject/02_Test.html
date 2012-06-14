@@ -10,6 +10,8 @@
 <script>
 	var mesh;
 	
+	var d,t0 = 0, t1, x;
+	
 	window.addEventListener('load',function(){
 		var camera, scene, renderer,
     		geometry, material;
@@ -58,12 +60,26 @@
     function render() {
 //        mesh.rotation.x += 0.01;
 //        mesh.rotation.y += 0.02;
+		camera.position.z = d * Mas.cos(t0);
         renderer.render( scene, camera );
     }
 	
 	//デバック用
-	document.addEventListener("keypress",function(e){
-		if(e.keyCode == 39)alert("右押した");
+	window.addEventListener("keydown",function(e){
+		if(e.keyCode == 37){	//←
+			
+		}
+		
+		if(e.keyCode == 38){	//↑　
+			d += 0.1;
+		}
+		
+		if(e.keyCode == 39){	//→
+		}
+		
+		if(e.keyCode == 40){	//↓
+			d -= 0.1;
+		}
     }, false);
 
 </script>
