@@ -62,7 +62,7 @@
     function render() {
 //        mesh.rotation.x += 0.01;
 //        mesh.rotation.y += 0.02;
-		camera.position.z = d * Math.sin(t0);
+		camera.position.z = d * Math.sin(t0) * Math.cos(p);
 		camera.position.x = d * Math.cos(t0);
 		camera.position.y = d * Math.cos(p);		
 		camera.lookAt({x:0, y:0, z:0 });
@@ -88,11 +88,11 @@
 		}
 
 		if(e.keyCode == 87){	//w
-			d += 0.1;
+			d -= 0.1;
 		}
 	
 		if(e.keyCode == 83){	//s
-			d -= 0.1;
+			d += 0.1;
 		}
 
     }, false);
