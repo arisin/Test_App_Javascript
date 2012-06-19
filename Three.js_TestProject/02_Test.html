@@ -10,7 +10,7 @@
 <script>
 	var mesh;
 	
-	var d = 10,t0 = Math.PI * 3 / 2, p, x;
+	var d = 10, t0 = Math.PI * 3 / 2, p; //t = θ, d = 初期値, p = Φ
 	
 	window.addEventListener('load',function(){
 		var camera, scene, renderer,
@@ -62,10 +62,10 @@
 //        mesh.rotation.x += 0.01;
 //        mesh.rotation.y += 0.02;
 		camera.position.z = d * Math.sin(t0);
-		camera.position.x = d * Math.cos(t0);		
+		camera.position.x = d * Math.cos(t0);
+		camera.position.y = d * Math.cos(p);		
 		camera.lookAt({x:0, y:0, z:0 });
         renderer.render( scene, camera );
-		
     }
 	
 	//デバック用
@@ -75,19 +75,25 @@
 		}
 		
 		if(e.keyCode == 38){	//↑
-			d += 0.1;
+			p += 0.1;
 		}
 		
 		if(e.keyCode == 39){	//→
-			t0 += 0.1;
+			p -= 0.1;
 		}
 		
 		if(e.keyCode == 40){	//↓
 			d -= 0.1;
 		}
-		else{
-			console.log(e.keyCode);
+
+		if(e.keyCode == 87){	//w
+			d += 0.1;
 		}
+	
+		if(e.keyCode == 83){	//s
+			t0 += 0.1;
+		}
+
     }, false);
 
 </script>
