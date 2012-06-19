@@ -10,7 +10,8 @@
 <script>
 	var mesh;
 	
-	var d = 10, t0 = Math.PI * 3 / 2, p; //t = θ, d = 初期値, p = Φ
+	var d = 10, t0 = Math.PI * 3 / 2, p = 0;
+	 //t = θ, d = 初期値, p = Φ
 	
 	window.addEventListener('load',function(){
 		var camera, scene, renderer,
@@ -74,16 +75,16 @@
 			t0 -= 0.1;
 		}
 		
+		if(e.keyCode == 39){	//→
+			t0 += 0.1;	
+		}
+				
 		if(e.keyCode == 38){	//↑
 			p += 0.1;
 		}
 		
-		if(e.keyCode == 39){	//→
-			p -= 0.1;
-		}
-		
 		if(e.keyCode == 40){	//↓
-			d -= 0.1;
+			p -= 0.1;
 		}
 
 		if(e.keyCode == 87){	//w
@@ -91,7 +92,7 @@
 		}
 	
 		if(e.keyCode == 83){	//s
-			t0 += 0.1;
+			d -= 0.1;
 		}
 
     }, false);
