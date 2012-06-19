@@ -66,10 +66,10 @@
 		camera.position.y = d * Math.sin(p);
 		camera.position.z = d * Math.sin(t0) * Math.cos(p);
 		
-		if(p > 90 && p < 270){
-			camera.up.y(-1);
+		if(p > Math.PI / 2 && p < Math.PI * 2 / 3){
+			camera.up.y = -1;
 		}else{
-			camera.up.y(1);
+			camera.up.y = 1;
 		}
 //		camera.lookAt({x:0, y:0, z:0 });
         renderer.render( scene, camera );
