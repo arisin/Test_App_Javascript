@@ -71,7 +71,7 @@
 		}else{
 			camera.up.y = 1;
 		}
-//		camera.lookAt({x:0, y:0, z:0 });
+		camera.lookAt({x:0, y:0, z:0 });
         renderer.render( scene, camera );
     }
 	
@@ -87,12 +87,18 @@
 				
 		if(e.keyCode == 38){	//↑
 			p += 0.1;
+			if(p > Math.PI * 2){
+				p -= Math.PI * 2;
+			}
 			console.log("↑　camera.position.z : " + camera.position.z);
 			console.log("　　camera.position.y : " + camera.position.y);
 		}
 		
 		if(e.keyCode == 40){	//↓
 			p -= 0.1;
+			if(p < 0){
+				p += Math.PI * 2;
+			}
 			console.log("↓　camera.position.z : " + camera.position.z);
 			console.log("　　camera.position.y : " + camera.position.y);
 		}
