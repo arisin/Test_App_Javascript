@@ -63,7 +63,7 @@
 //        mesh.rotation.x += 0.01;
 //        mesh.rotation.y += 0.02;
 		camera.position.x = d * Math.cos(t0) * Math.cos(p);
-		camera.position.y = d * Math.cos(p);		
+		camera.position.y = d * Math.sin(p);		
 		camera.position.z = d * Math.sin(t0) * Math.cos(p);
 		camera.lookAt({x:0, y:0, z:0 });
         renderer.render( scene, camera );
