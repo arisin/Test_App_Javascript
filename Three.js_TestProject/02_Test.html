@@ -34,12 +34,11 @@
 		// load ascii model
 
         var jsonLoader = new THREE.JSONLoader();
-        jsonLoader.load( "test1-a.js", function( geometry ) { createScene( geometry ) } );
+        jsonLoader.load( "test1-a.js", function( geometry ) { createScene( geometry , new THREE.MashFaceMaterial()) } );
 		
 
         function createScene( geometry ) {
 //			material = new THREE.MeshBasicMaterial();
-			material = new THREE.Mesh(geometry, new THREE.MashFaceMaterial());
             mesh = new THREE.Mesh( geometry, material);
 			scene.add(mesh);		
 
