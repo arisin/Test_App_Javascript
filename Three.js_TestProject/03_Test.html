@@ -16,6 +16,7 @@
 
 	    init();
     	animate();
+		enterframe();
 	});
 
     function init() {
@@ -74,6 +75,7 @@
 	   var lastKeyframe = 0;
 	   var currentKeyframe = 0;
 	   var _count = 0;
+	   
 	   for(var i = 0; i < mesh.morphTargetInfluences.length; i++) {
 	     mesh.morphTargetInfluences[i] = 0; 
 	   }
@@ -92,7 +94,8 @@
     	}else{
        	
 		var keyframe = Math.floor(time / interpolation) + from;
-       	if(keyframe != currentKeyframe) {
+       	
+		if(keyframe != currentKeyframe) {
        		mesh.morphTargetInfluences[lastKeyframe] = 0;
        		mesh.morphTargetInfluences[currentKeyframe] = 1;
        		mesh.morphTargetInfluences[keyframe] = 0;
