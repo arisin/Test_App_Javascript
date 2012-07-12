@@ -8,7 +8,12 @@
 </head>
 
 <script>
-	var mesh;
+	var time = 0;
+	var p = 0;
+	
+	var mesh = [];
+	for(var n = 0; n < 36; ++n)
+		mash.push(null);
 	
 	var d = 10, t0 = Math.PI * 3 / 2, p = 0;
 	 //t = θ, d = 初期値, p = Φ
@@ -32,15 +37,16 @@
 
 
 		// load ascii model
+		for(var n = 0; n < 36; ++n){
+        	var jsonLoader = new THREE.JSONLoader();
+//			console.log(n < 10 ? "0" + n : n);
+        	jsonLoader.load( "aruku_" + (n < 10 ? "0" + n : n) + ".js", function( geometry ) { createScene( geometry , n) } );
+		}
 
-        var jsonLoader = new THREE.JSONLoader();
-        jsonLoader.load( "test1-a.js", function( geometry ) { createScene( geometry ) } );
-		
-
-        function createScene( geometry ) {
+        function createScene( geometry, n ) {
 //			material = new THREE.MeshBasicMaterial();
-            mesh = new THREE.Mesh( geometry, new THREE.MeshFaceMaterial());
-			scene.add(mesh);		
+            mesh[n] = new THREE.Mesh( geometry, new THREE.MeshFaceMaterial());
+//			scene.add(mesh);		
 
         }
         
@@ -51,11 +57,20 @@
     }
 
     function animate() {
-
+		var td = new Date() - time;
+		if(dt > 1.0 /30){
+			screen.remove(mesh[p]);
+			++p;
+			if(p > 35){
+				p = 0;
+			}
+			screen.add(mesh[p]);
+		}
         // note: three.js includes requestAnimationFrame shim
         requestAnimationFrame( animate );
         render();
-
+		time = new Date();
+		
     }
 
     function render() {
