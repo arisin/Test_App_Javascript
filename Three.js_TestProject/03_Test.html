@@ -15,7 +15,7 @@
 	
 	window.addEventListener('load',function(){
 		var camera, scene, renderer,
-    		geometry, material;
+    		geometry, material_1, material_2;
 
 	    init();
     	animate();
@@ -37,28 +37,10 @@
 		
 
         function createScene( geometry ) {
-
-			//床の描画
-			var n_yuka = 10, yuka_w = 50; 
-			for(var i=-n_yuka; i<=n_yuka ; i++){
- 				for(var j=-n_yuka; j<=n_yuka ; j++){
-    				if((i+j)%2==0) var plane = new THREE.Mesh(
-        		  		new THREE.PlaneGeometry(yuka_w, yuka_w, 1, 1), 
-        		  		new THREE.MeshLambertMaterial({color: 0x999999}));
-      				else var plane = new THREE.Mesh(
-          				new THREE.PlaneGeometry(yuka_w, yuka_w, 1, 1), 
-          				new THREE.MeshLambertMaterial({color: 0x4d4d4d}));
-    					
-						plane.position.x = j*yuka_w;
-    					plane.position.y = i*yuka_w;
-    					plane.receiveShadow = true;
-    					scene.add(plane);
-  					}
-			}
-
-//			material = new THREE.MeshBasicMaterial( { color: 0xff0000, wireframe: true } );
-//            mesh = new THREE.Mesh( geometry, material);
-//			scene.add(mesh);		
+			material_1 = new THREE.MeshBasicMaterial( { color: 0xff0000, wireframe: true } );
+			material_2 = new THREE.PlaneGeometry(50, 50, 1, 1), new THREE.MeshLambertMaterial({color: 0x999999});
+            mesh = new THREE.Mesh( geometry, material_1, material_2);
+			scene.add(mesh);		
         }
 		
         
