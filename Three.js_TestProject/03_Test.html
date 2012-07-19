@@ -10,6 +10,9 @@
 <script>
 	var mesh;
 	
+	var d = 10, t0 = Math.PI * 3 / 2, p = 0;
+	//t = θ, d = 初期値, p = Φ
+	
 	window.addEventListener('load',function(){
 		var camera, scene, renderer,
     		geometry, material;
@@ -58,9 +61,57 @@
     function render() {
 //        mesh.rotation.x += 0.01;
 //        mesh.rotation.y += 0.02;
+		camera.position.x = d * Math.cos(t0) * Math.cos(p);
+		camera.position.y = d * Math.sin(p);
+		camera.position.z = d * Math.sin(t0) * Math.cos(p);
+		1
+		if(p > Math.PI / 2 && p < Math.PI * 3 / 2){
+			camera.up.y = -1;
+		}else{
+			camera.up.y = 1;
+		}
+		camera.lookAt({x:0, y:0, z:0 });
         renderer.render( scene, camera );
     }
 	
+	//デバック用
+	window.addEventListener("keydown",function(e){
+		if(e.keyCode == 37){	//←
+			t0 -= 0.1;
+		}
+		
+		if(e.keyCode == 39){	//→
+			t0 += 0.1;	
+		}
+				
+		if(e.keyCode == 38){	//↑
+			p += 0.1;
+			if(p > Math.PI * 2){
+				p -= Math.PI * 2;
+			}
+			console.log("↑　camera.position.z : " + camera.position.z);
+			console.log("　　camera.position.y : " + camera.position.y);
+		}
+		
+		if(e.keyCode == 40){	//↓
+			p -= 0.1;
+			if(p < 0){
+				p += Math.PI * 2;
+			}
+			console.log("↓　camera.position.z : " + camera.position.z);
+			console.log("　　camera.position.y : " + camera.position.y);
+		}
+
+		if(e.keyCode == 87){	//w
+			d -= 0.1;
+		}
+	
+		if(e.keyCode == 83){	//s
+			d += 0.1;
+		}
+
+    }, false);
+
 </script>
 
 <body>
