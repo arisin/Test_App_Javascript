@@ -15,7 +15,7 @@
 	
 	window.addEventListener('load',function(){
 		var camera, scene, renderer,
-    		geometry, material_1, material_2;
+    		geometry, material;
 
 	    init();
     	animate();
@@ -37,9 +37,8 @@
 		
 
         function createScene( geometry ) {
-//			material_1 = new THREE.MeshBasicMaterial( { color: 0xff0000, wireframe: true } );
-			material_2 = new THREE.PlaneGeometry(50, 50, 1, 1), new THREE.MeshLambertMaterial({color: 0x999999});
-            mesh = new THREE.Mesh( geometry,material_2);
+			material= new THREE.MeshBasicMaterial( { color: 0xff0000, wireframe: true } );
+            mesh = new THREE.Mesh( geometry,material);
 			scene.add(mesh);		
         }
 		
