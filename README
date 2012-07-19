@@ -10,6 +10,16 @@ http://arisin.github.com/Test_App_Javascript/
     >Metasequoia(http://www.metaseq.net/metaseq/)
     >Elfraina(http://sorceryforce.com/elfreina/)
 
+・構成
+    branch : gh-pages
+        >Three.js_TestProject
+            >01_Test.html --> Android用Twitterのサンプル
+            >02_Test.html --> パラパラ漫画式アニメーション
+                            ＊未完成・モデルデータ：aruku_usagi
+            >03_Test.html --> モデルデータ（usagi_blender_01.js）読み込みテスト
+                            ＊矢印キーでカメラの位置を変えることができますが、何かが変
+            
+
 ☆このプロジェクトについて☆
 Three.jsを使って３Dショートムービーを作るプロジェクトです。
 １期（４〜７月中旬）では上記のソフトの使い方、３Dの基礎全般
